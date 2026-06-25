@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Game</title>
+
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/game_keypad.css">
+
+</head>
+
+<body>
+
+	<h1 th:text="${len} + #{message.game.prompt}"></h1>
+	<div class="container">
+
+		<form th:action="@{/judge}" th:object="${gameCmdBean}" method="post">
+			<input type="text" id="inputBox" th:field="*{input}" th:attr="data-len=${len}" class="inputBox" readonly />
+
+			<div class="keypad">
+				<button type="button" onclick="addNum('1')">1</button>
+				<button type="button" onclick="addNum('2')">2</button>
+				<button type="button" onclick="addNum('3')">3</button>
+
+				<button type="button" onclick="addNum('4')">4</button>
+				<button type="button" onclick="addNum('5')">5</button>
+				<button type="button" onclick="addNum('6')">6</button>
+
+				<button type="button" onclick="addNum('7')">7</button>
+				<button type="button" onclick="addNum('8')">8</button>
+				<button type="button" onclick="addNum('9')">9</button>
+
+				<button type="button" class="control" onclick="backspace()">←</button>
+				<button type="button" onclick="addNum('0')">0</button>
+
+				<button type="submit" class="judge">
+					[[#{message.button.judge}]]
+				</button>
+			</div>
+
+			<p th:if="${errorKey}" th:text="#{${errorKey}(${errorArg})}" class="errorMessage"></p>
+
+			<p th:if="${#fields.hasErrors('input')}" th:errors="*{input}" class="errorMessage"></p>
+
+		</form>
+
+	</div>
+
+	<script src="/js/game.js"></script>
+
+</body>
+
+</html>

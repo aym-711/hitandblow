@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>index</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/game_keypad.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1>[[#{message.title}]]</h1>
+		<h2>[[#{message.select.len}]]</h2>
+
+		<a href="/start?len=3" class="gal-btn">[[#{message.len.3}]]</a>
+		<a href="/start?len=4" class="gal-btn">[[#{message.len.4}]]</a>
+		<a href="/start?len=5" class="gal-btn">[[#{message.len.5}]]</a>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Result</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/game_keypad.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1>[[#{message.result.title}]]</h1>
+		<p class="result-item">[[#{message.result.input}]][[${input}]]</p>
+		<p class="result-item">[[#{message.hit}]]：[[${hit}]]</p>
+		<p class="result-item">[[#{message.blow}]]：[[${blow}]]</p>
+		<p class="result-item">[[#{message.remain}]]<span th:text="${remain}" style="color:red;"></span>
+			[[#{message.count}]]</p>
+		<a th:href="@{/game}"><button class="judge">[[#{message.button.back}]]</button></a><br><br>
+
+		<table class="history-table">
+			<thead>
+				<tr>
+					<th>[[#{message.input}]]</th>
+					<th>[[#{message.hit}]]</th>
+					<th>[[#{message.blow}]]</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="h : ${historyList}">
+					<td th:text="${h.input}"></td>
+					<td th:text="${h.hit}"></td>
+					<td th:text="${h.blow}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<form th:action="@{/giveup}" method="post"><button class="judge">[[#{message.button.giveup}]]</button></form>
+		<br><br>
+		<a th:href="@{/index}">[[#{message.top}]]</a>
+	</div>
+</body>
+
+</html>

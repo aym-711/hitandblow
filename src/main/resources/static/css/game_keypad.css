@@ -1,0 +1,223 @@
+body {
+	background: #ffffff;
+	text-align: left;
+	margin: 0;
+	font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+body,
+input,
+button,
+a {
+	font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+/* メインカード */
+.container {
+	max-width: 320px;
+	margin: 30px 0 30px 30px;
+	padding: 20px;
+	background: #f0ffff;
+	/* 水色ベース */
+	border-radius: 20px;
+	box-shadow:
+		0 0 15px #ff66cc,
+		0 0 20px #66ccff,
+		0 0 30px #a06bff;
+}
+
+h1 {
+	font-size: 18px;
+	color: #ff3399;
+	text-shadow:
+		2px 2px #fff,
+		0 0 8px #66ccff;
+	margin-bottom: 15px;
+}
+
+h2 {
+	font-size: 16px;
+	color: #666;
+	margin-bottom: 20px;
+}
+
+form {
+	text-align: left;
+}
+
+/* 入力欄 */
+.inputBox {
+	width: 220px;
+	height: 45px;
+	font-size: 22px;
+	text-align: center;
+	border-radius: 15px;
+	border: 3px solid #66ccff;
+	margin-bottom: 10px;
+	background: white;
+	box-shadow: 0 0 10px #66ccff;
+}
+
+
+a {
+	color: #ff3399;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #ff66cc;
+	text-decoration: underline;
+}
+
+
+.keypad-gal {
+	width: 220px;
+	margin-top: 10px;
+	/* 上だけ余白 */
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+}
+
+.keypad-gal button {
+	height: 45px;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #ff9de2, #66ccff);
+	color: white;
+	font-weight: bold;
+	border: none;
+
+	box-shadow: 0 4px #888;
+	/* ←追加 */
+	transition: 0.2s;
+}
+
+.keypad-gal button:active {
+	transform: translateY(3px);
+}
+
+.gal-btn {
+	background: linear-gradient(145deg, #ff9de2, #66ccff);
+	color: white;
+	border: none;
+	border-radius: 12px;
+	padding: 8px 16px;
+	font-weight: bold;
+	box-shadow: 0 4px #888;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+/* 押したとき */
+.gal-btn:active {
+	transform: translateY(3px);
+	box-shadow: 0 1px #555;
+}
+
+/* 判定ボタン（水色メイン） */
+.judge {
+	background: #66ccff;
+	color: white;
+	border: none;
+	padding: 14px 36px;
+	font-size: 16px;
+	border-radius: 10px;
+	cursor: pointer;
+	font-weight: 700;
+	box-shadow: 0 6px 0 #1e8bf1, 0 8px 10px rgba(0, 0, 0, 0.2);
+	transition: all 0.1s ease;
+	position: relative;
+	top: 0;
+
+	&:hover {
+		background: #13aeeb;
+	}
+
+	&:active {
+		top: 4px;
+		box-shadow: 0 2px 0 #1e8bf1, 0 4px 6px rgba(0, 0, 0, 0.2);
+	}
+}
+
+.history-table {
+	width: 100%;
+	max-width: 280px;
+	border-collapse: collapse;
+	margin-top: 10px;
+	font-size: 14px;
+	box-shadow: 0 0 10px #66ccff;
+	border-radius: 10px;
+	overflow: hidden;
+
+}
+
+/* ヘッダー */
+.history-table th {
+	background: linear-gradient(145deg, #ff9de2, #66ccff);
+	color: white;
+	padding: 6px;
+	border-radius: 6px 6px 0 0;
+}
+
+/* データ */
+.history-table td {
+	background: #ffffff;
+	padding: 6px;
+	text-align: center;
+	border-bottom: 2px solid #66ccff;
+}
+
+/* 行ごとに少し交互に */
+.history-table tr:nth-child(even) td {
+	background: #f0ffff;
+}
+
+
+.result-item {
+	font-size: 16px;
+	color: #666;
+	margin-bottom: 10px;
+}
+
+.result-item span {
+	color: #ff3399;
+	font-weight: bold;
+}
+
+.remain {
+	color: red;
+	font-weight: bold;
+}
+
+.answer {
+	font-size: 16px;
+	color: #666;
+	margin-bottom: 20px;
+}
+
+.answer span {
+	color: #ff3399;
+	font-weight: bold;
+	text-shadow:
+		0 0 5px #ff66cc,
+		0 0 10px #ff66cc,
+		0 0 15px #ff99ff;
+
+}
+
+/* エラー */
+.errorMessage {
+	color: #ff0066;
+	font-weight: bold;
+	text-shadow: 0 0 5px white;
+	margin-top: 10px;
+}
+
+/* ギャルデコ */
+.container::before {
+	content: "💎✨💖✨💎";
+	display: block;
+	font-size: 20px;
+	margin-bottom: 10px;
+}

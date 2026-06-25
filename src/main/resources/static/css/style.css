@@ -1,0 +1,19 @@
+.btn {
+    display: block;
+    padding: 8px 16px;
+    border: 1px solid #000;
+    text-decoration: none;
+    background-color: #eee;
+    
+    margin-bottom: 10px;
+    width: 100px;
+    text-align: center;
+}
+.btn:hover {
+    background-color: #ccc;
+}
+
+.errorMessage 
+{ 
+color: #FF0000; 
+}

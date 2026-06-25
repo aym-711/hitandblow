@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Game</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/game_keypad.css">
+	<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<h2 th:text="${len} + #{message.game.prompt}"></h2>
+
+		<form th:action="@{/judge}" th:object="${gameCmdBean}" method="post">
+			<input type="text" id="inputBox" th:field="*{input}" th:attr="data-len=${len}" class="inputBox" readonly />
+			<p th:if="${errorKey}" th:text="#{${errorKey}(${errorArg})}" class="errorMessage"></p>
+			<p th:if="${#fields.hasErrors('input')}" th:errors="*{input}" class="errorMessage"></p>
+			<input type="submit" th:value="#{message.button.judge}" class="judge" />
+			<br>
+
+			<div class="keypad-gal">
+				<button type="button" onclick="addNum('1')">1</button>
+				<button type="button" onclick="addNum('2')">2</button>
+				<button type="button" onclick="addNum('3')">3</button>
+
+				<button type="button" onclick="addNum('4')">4</button>
+				<button type="button" onclick="addNum('5')">5</button>
+				<button type="button" onclick="addNum('6')">6</button>
+
+				<button type="button" onclick="addNum('7')">7</button>
+				<button type="button" onclick="addNum('8')">8</button>
+				<button type="button" onclick="addNum('9')">9</button>
+
+				<button type="button" onclick="backspace()">←</button>
+				<button type="button" onclick="addNum('0')">0</button>
+			</div>
+
+		</form>
+
+		<p th:if="${!#lists.isEmpty(historyList)}">
+			[[#{message.remain}]] <span th:text="${remain}"
+				style="color:red; font-weight:bold;"></span>[[#{message.count}]]
+		</p>
+		<br>
+		<table class="history-table" th:if="${!#lists.isEmpty(historyList)}">
+			<tr>
+				<th>[[#{message.input}]]</th>
+				<th>[[#{message.hit}]]</th>
+				<th>[[#{message.blow}]]</th>
+			</tr>
+
+			<tr th:each="h : ${historyList}">
+				<td th:text="${h.input}"></td>
+				<td th:text="${h.hit}"></td>
+				<td th:text="${h.blow}"></td>
+			</tr>
+		</table>
+
+		<br>
+		<form th:action="@{/giveup}" method="post"><button class="judge">[[#{message.button.giveup}]]</button></form>
+		<br><br>
+		<a th:href="@{/index}">[[#{message.link.top}]]</a>
+		<script src="/js/game.js"></script>
+	</div>
+</body>
+
+</html>
