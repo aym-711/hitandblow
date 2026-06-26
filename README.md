@@ -50,4 +50,4 @@ https://hitandblow-1.onrender.com
 
 - スコア機能の追加
 - 難易度設定
-- スマホ最適化の強化
+- スマホ最適化の強化 →　android,iPhone動作確認済
