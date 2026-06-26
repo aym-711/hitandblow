@@ -16,6 +16,7 @@
 
 		<form th:action="@{/judge}" th:object="${gameCmdBean}" method="post">
 			<input type="text" id="inputBox" th:field="*{input}" th:attr="data-len=${len}" class="inputBox" readonly />
+			<p id="errorMessage" class="errorMessage"></p>
 			<p th:if="${errorKey}" th:text="#{${errorKey}(${errorArg})}" class="errorMessage"></p>
 			<p th:if="${#fields.hasErrors('input')}" th:errors="*{input}" class="errorMessage"></p>
 			<input type="submit" th:value="#{message.button.judge}" class="judge" />
